@@ -1,47 +1,125 @@
 source 'https://rubygems.org'
+ruby '2.3.3'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
+gem 'rails', '~> 4.2.9'
+gem 'sass-rails', '~> 5.0.6'
+gem 'sprockets-rails', '~> 3.2.0'
+gem 'sprockets', '~> 3.7.0'
+gem 'sprockets-es6', '~> 0.9.2' # NOTE: This goes away when we can hit sprockets 4 again
+gem 'babel-transpiler'
+gem 'pg', '~> 0.20.0'
+gem 'clockwork'      # cron-like scheduler
+gem 'sidekiq'        # background jobs
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'jbuilder', '~> 2.0' # Build json responses
+gem 'puma' # webserver
+gem 'sinatra', require: nil # for sidekiq dashboard
+gem 'activeadmin', github: 'activeadmin' # Admin interface
+gem 'active_admin_theme' # Theme up activeadmin a bit, flatter
+gem 'devise'          # authentication
+gem 'pundit'          # authorization
+gem 'skywalker'
+gem "recaptcha", require: "recaptcha/rails"
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+# heroku-like uniqueish ids
+gem 'haikunator'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+## Asset bits
+gem 'therubyracer'
+gem 'haml', '~> 4.0.7'
+gem 'foundation-rails', '~> 6.1.2.0'
+gem 'foundation-icons-sass-rails'
+gem 'gravtastic'
+gem 'font-awesome-rails'
+gem 'purecss-sass', '~> 0.6.2'
+gem 'activeadmin_hstore_editor'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+# Helpers for meta tags
+gem 'meta-tags'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+## Render markdown
+gem 'redcarpet'
+gem 'markerb'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
+## Truncate HTML
+gem 'html_truncator', '~> 0.2'
+
+## Slugs
+gem 'friendly_id', '~> 5.1.0'
+
+## Push notifications
+gem 'urbanairship', '~> 3.2.1'
+
+## Decorate gem models and such
+gem 'decorators', '~> 2.0.1'
+
+## Postgres fulltext search convenience
+gem 'textacular', '~> 3.0'
+
+gem 'state_machines-activerecord'
+gem 'public_activity'
+
+## Deploy
+
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'pre-commit', require: false
+  gem 'rubocop', require: false
+  gem 'rack-mini-profiler' # nice window showing request problems on all pages
+  gem 'better_errors'
+  gem 'guard', require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'capistrano', '~> 3.7', '>= 3.7.1'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rbenv', '~> 2.1'
 end
 
+group :development, :test do
+  gem 'brakeman', require: false
+  gem 'byebug'
+  gem 'pry'
+  gem 'factory_girl_rails'
+  gem 'faker', '~> 1.7.1'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'spinach-rails'
+  gem 'wkhtmltopdf-binary-edge', '~> 0.12.4.0' # PDFkit works on env development & test
+
+  # Generate API documentation from request specs
+  gem 'rspec_api_documentation'
+end
+
+group :test do
+  gem 'puffing-billy'
+  gem 'thin'
+  gem 'capybara'
+  gem 'capybara-selenium'
+  gem 'chromedriver-helper'
+  gem 'database_cleaner'
+  gem 'launchy', require: false
+  gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'phantomjs'
+  gem 'webmock'
+  gem 'simplecov', require: false
+  gem 'simplecov-json', require: false
+  gem 'simplecov-rcov', require: false
+  gem 'fake_braintree', require: false
+  gem 'timecop'
+  gem 'clockwork-test'
+end
+
+group :production do
+  ## Application Monitoring
+  gem 'skylight', '1.0.1'
+end
+group :production, :staging do
+  ## Enable rack timeouts
+  gem 'rack-timeout'
+
+  # gem 'bugsnag' # bugsnag.com
+end
