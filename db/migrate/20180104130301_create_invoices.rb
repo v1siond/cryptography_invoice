@@ -7,6 +7,7 @@ class CreateInvoices < ActiveRecord::Migration
       t.integer :status, default: 0, null: false
       t.belongs_to :client, null: false
       t.belongs_to :company, null: false
+      t.integer   :deleted, default: 0
 
       t.timestamps null: false
     end

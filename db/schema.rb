@@ -17,20 +17,22 @@ ActiveRecord::Schema.define(version: 20180118214614) do
   enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
-    t.string   "name",           null: false
-    t.string   "direction",      null: false
-    t.string   "phone",          null: false
-    t.string   "identification", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "name",                       null: false
+    t.string   "direction",                  null: false
+    t.string   "phone",                      null: false
+    t.string   "identification",             null: false
+    t.integer  "deleted",        default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string "name",      null: false
-    t.string "nit",       null: false
-    t.string "direction", null: false
-    t.string "city",      null: false
-    t.string "country",   null: false
+    t.string  "name",                  null: false
+    t.string  "nit",                   null: false
+    t.string  "direction",             null: false
+    t.string  "city",                  null: false
+    t.string  "country",               null: false
+    t.integer "deleted",   default: 0
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
@@ -50,15 +52,17 @@ ActiveRecord::Schema.define(version: 20180118214614) do
     t.integer  "status",     default: 0, null: false
     t.integer  "client_id",              null: false
     t.integer  "company_id",             null: false
+    t.integer  "deleted",    default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.float    "price",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                   null: false
+    t.float    "price",                  null: false
+    t.integer  "deleted",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -6,6 +6,7 @@ class CreateCompany < ActiveRecord::Migration
       t.string :direction, null: false
       t.string :city, null: false
       t.string :country, null: false
+      t.integer    :deleted, default: 0
     end
     add_index :companies, :name, unique: true
     add_index :companies, :nit, unique: true

@@ -5,6 +5,7 @@ class CreateClients < ActiveRecord::Migration
       t.string :direction, null: false
       t.string :phone, null: false
       t.string :identification, null: false
+      t.integer   :deleted, default: 0
 
       t.timestamps null: false
     end

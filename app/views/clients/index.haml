@@ -21,19 +21,20 @@
           %span
             Perfil:
       - @clients.each do |client|
-        %tr.pure-u-1.row
-          %td.pure-u-1-5.t-item.name
-            %span
-              = client.name
-          %td.pure-u-2-5.t-item.direction
-            %span
-              = client.direction
-          %td.pure-u-1-5.t-item.phone
-            %span
-              = client.phone
-          %td.pure-u-1-10.t-item.id
-            %span
-              = client.identification
-          %td.pure-u-1-10.t-item.pdf
-            %span
-              = link_to 'See Client', client_path(client), remote: true, class: 'InvoqueModal partial n-link'
+        - if client.deleted == 0
+          %tr.pure-u-1.row
+            %td.pure-u-1-5.t-item.name
+              %span
+                = client.name
+            %td.pure-u-2-5.t-item.direction
+              %span
+                = client.direction
+            %td.pure-u-1-5.t-item.phone
+              %span
+                = client.phone
+            %td.pure-u-1-10.t-item.id
+              %span
+                = client.identification
+            %td.pure-u-1-10.t-item.pdf
+              %span
+                = link_to "Delete client", client_path(client), remote: true, :confirm => "Are you sure?", :method => :delete, class: 'delete_client'

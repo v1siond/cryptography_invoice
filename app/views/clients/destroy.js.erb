@@ -1,0 +1,5 @@
+let partial_holder = '.partial-container';
+
+$('.delete_client').bind('ajax:success', function(event, data, status, xhr) {
+  $('a[href="/clients"]').trigger('click');
+});

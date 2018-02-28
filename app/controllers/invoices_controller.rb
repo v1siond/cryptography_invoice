@@ -36,9 +36,18 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def destroy
+    @invoice = Invoice.find(params[:id])
+    @invoice.update(deleted: 1)
+    respond_to do |format|
+      format.html { redirect_to invoices_path }
+      format.js   { render :layout => false }
+    end
+  end
+
   private
 
     def invoice_params
-      params.require(:invoice).permit(:status, :company_id, :client_id, :date, :tax, :balance, invoice_products_attributes: [:product_id, :product_quantity, :product_total_price])
+      params.require(:invoice).permit(:status, :company_id, :client_id, :date, :tax, :balance, :deleted, invoice_products_attributes: [:product_id, :product_quantity, :product_total_price])
     end
 end

@@ -34,9 +34,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.update(deleted: 1)
+    respond_to do |format|
+      format.html { redirect_to products_path }
+      format.js   { render :layout => false }
+    end
+  end
+
   private
 
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:name, :price, :deleted)
     end
 end

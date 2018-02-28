@@ -18,16 +18,17 @@
           %span
             Actions:
       - @products.each do |product|
-        %tr.pure-u-1.row
-          %td.pure-u-1-5.t-item.p-id
-            %span
-              = product.id
-          %td.pure-u-2-5.t-item.equalFour
-            %span
-              = product.name
-          %td.pure-u-1-5.t-item.equalFour
-            %span
-              = product.price
-          %td.pure-u-1-5.t-item.equalFour
-            %span
-              = link_to 'See Product', product_path(product), remote: true, class: 'InvoqueModal partial n-link'
+        - if product.deleted == 0
+          %tr.pure-u-1.row
+            %td.pure-u-1-5.t-item.p-id
+              %span
+                = product.id
+            %td.pure-u-2-5.t-item.equalFour
+              %span
+                = product.name
+            %td.pure-u-1-5.t-item.equalFour
+              %span
+                = product.price
+            %td.pure-u-1-5.t-item.equalFour
+              %span
+                = link_to "Delete Product", product_path(product), remote: true, :confirm => "Are you sure?", :method => :delete, class: 'delete_product'

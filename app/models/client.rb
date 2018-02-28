@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  has_many :invoices
+  has_many :invoices, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :direction, presence: true
   validates :phone, presence: true, uniqueness: true

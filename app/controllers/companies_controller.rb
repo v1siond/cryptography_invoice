@@ -28,9 +28,18 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def destroy
+    @company = Company.find(params[:id])
+    @company.update(deleted: 1)
+    respond_to do |format|
+      format.html { redirect_to companies_path }
+      format.js   { render :layout => false }
+    end
+  end
+
   private
 
     def company_params
-      params.require(:company).permit(:name, :nit, :direction, :city, :country)
+      params.require(:company).permit(:name, :nit, :direction, :city, :country, :deleted)
     end
 end

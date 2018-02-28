@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  has_many :invoice_products
+  has_many :invoice_products, dependent: :destroy
   has_many :invoices, through: :invoice_products
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true

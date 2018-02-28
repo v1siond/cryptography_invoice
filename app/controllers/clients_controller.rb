@@ -22,6 +22,15 @@ class ClientsController < ApplicationController
     end
   end
 
+  def destroy
+    @client = Client.find(params[:id])
+    @client.update(deleted: 1)
+    respond_to do |format|
+      format.html { redirect_to clients_path }
+      format.js   { render :layout => false }
+    end
+  end
+
   def create
     @client = Client.new(client_params)
     @clients = Client.all
@@ -38,6 +47,6 @@ class ClientsController < ApplicationController
   private
 
     def client_params
-      params.require(:client).permit(:name, :direction, :phone, :identification)
+      params.require(:client).permit(:name, :direction, :phone, :identification, :deleted)
     end
 end

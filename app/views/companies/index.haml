@@ -5,30 +5,37 @@
         %td.pure-u-1.t-header-item.d-title.-bold.-scorpion
           %span
             Companies
-        %td.pure-u-1-4.t-item.name
+        %td.pure-u-1-5.t-item.name
           %span
             Name:
-        %td.pure-u-1-4.t-item.id
+        %td.pure-u-1-5.t-item.id
           %span
             ID:
-        %td.pure-u-1-4.t-item.status
+        %td.pure-u-1-5.t-item.status
           %span
             Nit:
-        %td.pure-u-1-4.t-item.balance
+        %td.pure-u-1-5.t-item.balance
           %span
             Direction:
+        %td.pure-u-1-5.t-item
+          %span
+            Actions
       - @companies.each do |company|
-        %tr.pure-u-1.row
-          %td.pure-u-1-4.t-item.name
-            %span
-              = company.name
-          %td.pure-u-1-4.t-item.id
-            %span
-              = company.id
-          %td.pure-u-1-4.t-item.status
-            %span
-              = company.nit
-          %td.pure-u-1-4.t-item.balance
-            %span
-              = company.direction
-              = " #{company.city} - #{company.country}"
+        - if company.deleted == 0
+          %tr.pure-u-1.row
+            %td.pure-u-1-5.t-item.name
+              %span
+                = company.name
+            %td.pure-u-1-5.t-item.id
+              %span
+                = company.id
+            %td.pure-u-1-5.t-item.status
+              %span
+                = company.nit
+            %td.pure-u-1-5.t-item.balance
+              %span
+                = company.direction
+                = " #{company.city} - #{company.country}"
+            %td.pure-u-1-5.t-item
+              %span
+                = link_to "Delete company", company_path(company), remote: true, :confirm => "Are you sure?", :method => :delete, class: "delete_company"

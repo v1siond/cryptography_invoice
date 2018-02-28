@@ -21,19 +21,21 @@
           %span
             PDF:
       - @invoices.each do |invoice|
-        %tr.pure-u-1.row
-          %td.pure-u-1-5.t-item.name
-            %span
-              = invoice.client.name
-          %td.pure-u-1-5.t-item.id
-            %span
-              = invoice.client.identification
-          %td.pure-u-1-5.t-item.status
-            %span
-              = invoice.status
-          %td.pure-u-1-5.t-item.balance
-            %span
-              = invoice.balance
-          %td.pure-u-1-5.t-item.pdf
-            %span
-              = link_to 'Download', invoice_path(invoice), remote: true, class: 'InvoqueModal partial n-link'
+        - if invoice.deleted == 0
+          %tr.pure-u-1.row
+            %td.pure-u-1-5.t-item.name
+              %span
+                = invoice.client.name
+            %td.pure-u-1-5.t-item.id
+              %span
+                = invoice.client.identification
+            %td.pure-u-1-5.t-item.status
+              %span
+                = invoice.status
+            %td.pure-u-1-5.t-item.balance
+              %span
+                = invoice.balance
+            %td.pure-u-1-5.t-item.pdf
+              %span
+                = link_to 'Download', invoice_path(invoice), remote: true, class: 'InvoqueModal partial n-link'
+                = link_to "Delete invoice", invoice_path(invoice), remote: true, :confirm => "Are you sure?", :method => :delete, class: 'delete_invoice'
