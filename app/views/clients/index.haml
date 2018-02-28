@@ -2,27 +2,38 @@
   %table.pure-u-1.m-table.white-box
     %tbody.pure-u-1.t-body
       %tr.pure-u-1.header
-        %td.pure-u-1.t-header-item.d-title.-bold.-panel.-scorpion
-          Clients
-        %td.t-item.name
-          Name:
-        %td.t-item.id
-          Direction:
-        %td.t-item.status
-          Phone:
-        %td.t-item.balance
-          ID:
-        %td.t-item.pdf
-          Perfil:
+        %td.pure-u-1.t-header-item.d-title.-bold.-scorpion
+          %span
+            Clients
+        %td.pure-u-1-5.t-item.name
+          %span
+            Name:
+        %td.pure-u-2-5.t-item.direction
+          %span
+            Direction:
+        %td.pure-u-1-5.t-item.phone
+          %span
+            Phone:
+        %td.pure-u-1-10.pure-u-0-5-10.t-item.id
+          %span
+            ID:
+        %td.pure-u-1-10.pure-u-1-5-10.t-item.pdf
+          %span
+            Perfil:
       - @clients.each do |client|
         %tr.pure-u-1.row
-          %td.t-item.name
-            = client.name
-          %td.t-item.id
-            = client.direction
-          %td.t-item.status
-            = client.phone
-          %td.t-item.balance
-            = client.identification
-          %td.t-item.pdf
-            = link_to 'See Client', client_path(client), remote: true, class: 'InvoqueModal partial n-link'
+          %td.pure-u-1-5.t-item.name
+            %span
+              = client.name
+          %td.pure-u-2-5.t-item.direction
+            %span
+              = client.direction
+          %td.pure-u-1-5.t-item.phone
+            %span
+              = client.phone
+          %td.pure-u-1-10.t-item.id
+            %span
+              = client.identification
+          %td.pure-u-1-10.t-item.pdf
+            %span
+              = link_to 'See Client', client_path(client), remote: true, class: 'InvoqueModal partial n-link'

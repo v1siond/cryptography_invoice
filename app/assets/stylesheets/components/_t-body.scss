@@ -6,6 +6,7 @@
   margin-top: 1rem;
 }
 .t-body {
+  border: .05rem solid $scorpion;
   dislay: inline-block;
   > .header,
   > .row {
@@ -18,13 +19,15 @@
     box-sizing: border-box;
   }
   &.product-table {
-    border: .05rem solid $scorpion;
     height: 10rem;
     overflow-y: auto;
     overflow-x: hidden;
     > .row:nth-child(even) {
       background: $wild_sand;
       border: .05rem solid $scorpion;
+    }
+    .t-item {
+      text-align: left;
     }
   }
 }
@@ -44,46 +47,24 @@
   }
 }
 
+.t-header-item {
+  border-bottom: .05rem solid black;
+}
 
 .t-item {
-  &.name,
-  &.id,
-  &.status,
-  &.pdf,
-  &.balance,
-  &.equalFour,
-  &.p-id {
-    border: .05rem solid black;
-    padding: .25rem 0;
-    text-align: center;
-  }
-  &.name {
-    width: calc(75% - 9.5rem);
-    @include sm {
-      width: calc(50% - 9.5rem);
-    }
+  border-bottom: .05rem solid black;
+  border-right: .05rem solid black;
+  text-align: center;
+  word-break: break-all;
+  word-wrap: break-word;
+  &:last-child {
+    border-right: none;
   }
   &.id {
     display: none;
     @include sm {
       display: block;
-      width: 25%;
     }
-  }
-  &.status {
-    width: 4rem;
-  }
-  &.balance {
-    width: 25%;
-  }
-  &.pdf {
-    width: 5rem;
-  }
-  &.p-id {
-    width: calc(10% - .1rem);
-  }
-  &.equalFour {
-    width: calc(30% - .1rem);
   }
   > span {
     padding: .5rem;

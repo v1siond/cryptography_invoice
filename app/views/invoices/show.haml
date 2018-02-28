@@ -80,25 +80,25 @@
           %td.t-item.pure-u-1-5
             Total:
     %table.pure-u-1.i-table
-      %tbody.pure-u-1.t-body.product-table
+      %tbody.pure-u-1.t-body
         - @invoice.invoice_products.each do |item|
           %tr.pure-u-1.row.field-container
-            %td.t-item.pure-u-1-5
+            %td.t-item.pure-u-1-5._text-left
               %span
                 = item.product.name
-            %td.t-item.pure-u-1-5.i-id
+            %td.t-item.pure-u-1-5.i-id._text-left
               %span
                 = item.product.id
-            %td.t-item.pure-u-1-5
+            %td.t-item.pure-u-1-5._text-left
               %span
                 = item.product_quantity
-            %td.t-item.pure-u-1-5
-              $
+            %td.t-item.pure-u-1-5._text-left
               %span.i-price
+                $
                 = item.product.price
-            %td.t-item.pure-u-1-5
-              $
+            %td.t-item.pure-u-1-5._text-left
               %span.i-price
+                $
                 = item.product_total_price
     .pure-u-1.i-balance._text-right
       %strong.d-title.-mid-size.-scorpion

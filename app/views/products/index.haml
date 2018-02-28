@@ -2,23 +2,32 @@
   %table.pure-u-1.m-table.white-box
     %tbody.pure-u-1.t-body
       %tr.pure-u-1.header
-        %td.pure-u-1.t-header-item.d-title.-bold.-panel.-scorpion
-          Products
-        %td.t-item.p-id
-          ID:
-        %td.t-item.equalFour
-          Name:
-        %td.t-item.equalFour
-          Price:
-        %td.t-item.equalFour
-          Actions:
+        %td.pure-u-1.t-header-item.d-title.-bold.-scorpion
+          %span
+            Products
+        %td.pure-u-1-5.t-item.p-id
+          %span
+            ID:
+        %td.pure-u-2-5.t-item.equalFour
+          %span
+            Name:
+        %td.pure-u-1-5.t-item.equalFour
+          %span
+            Price:
+        %td.pure-u-1-5.t-item.equalFour
+          %span
+            Actions:
       - @products.each do |product|
         %tr.pure-u-1.row
-          %td.t-item.p-id
-            = product.id
-          %td.t-item.equalFour
-            = product.name
-          %td.t-item.equalFour
-            = product.price
-          %td.t-item.equalFour
-            = link_to 'See Product', product_path(product), remote: true, class: 'InvoqueModal partial n-link'
+          %td.pure-u-1-5.t-item.p-id
+            %span
+              = product.id
+          %td.pure-u-2-5.t-item.equalFour
+            %span
+              = product.name
+          %td.pure-u-1-5.t-item.equalFour
+            %span
+              = product.price
+          %td.pure-u-1-5.t-item.equalFour
+            %span
+              = link_to 'See Product', product_path(product), remote: true, class: 'InvoqueModal partial n-link'

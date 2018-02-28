@@ -2,27 +2,38 @@
   %table.pure-u-1.m-table.white-box
     %tbody.pure-u-1.t-body
       %tr.pure-u-1.header
-        %td.pure-u-1.t-header-item.d-title.-bold.-panel.-scorpion
-          Invoices
-        %td.t-item.name
-          Client:
-        %td.t-item.id
-          Client ID:
-        %td.t-item.status
-          Status:
-        %td.t-item.balance
-          Balance:
-        %td.t-item.pdf
-          PDF:
+        %td.pure-u-1.t-header-item.d-title.-bold.-scorpion
+          %span
+            Invoices
+        %td.pure-u-1-5.t-item.name
+          %span
+            Client:
+        %td.pure-u-1-5.t-item.id
+          %span
+            Client ID:
+        %td.pure-u-1-5.t-item.status
+          %span
+            Status:
+        %td.pure-u-1-5.t-item.balance
+          %span
+            Balance:
+        %td.pure-u-1-5.t-item.pdf
+          %span
+            PDF:
       - @invoices.each do |invoice|
         %tr.pure-u-1.row
-          %td.t-item.name
-            = invoice.client.name
-          %td.t-item.id
-            = invoice.client.identification
-          %td.t-item.status
-            = invoice.status
-          %td.t-item.balance
-            = invoice.balance
-          %td.t-item.pdf
-            = link_to 'Download', invoice_path(invoice), remote: true, class: 'InvoqueModal partial n-link'
+          %td.pure-u-1-5.t-item.name
+            %span
+              = invoice.client.name
+          %td.pure-u-1-5.t-item.id
+            %span
+              = invoice.client.identification
+          %td.pure-u-1-5.t-item.status
+            %span
+              = invoice.status
+          %td.pure-u-1-5.t-item.balance
+            %span
+              = invoice.balance
+          %td.pure-u-1-5.t-item.pdf
+            %span
+              = link_to 'Download', invoice_path(invoice), remote: true, class: 'InvoqueModal partial n-link'

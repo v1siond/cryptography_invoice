@@ -1,6 +1,6 @@
 - if flash[:quote_errors]
-  %ul
+  %ul.pure-u-1.error
     - flash[:quote_errors].each do |msg|
-      %li
+      %li.d-title.-small-size.-green.-fullWidth
         = msg
     end

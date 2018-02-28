@@ -2,24 +2,33 @@
   %table.pure-u-1.m-table.white-box
     %tbody.pure-u-1.t-body
       %tr.pure-u-1.header
-        %td.pure-u-1.t-header-item.d-title.-bold.-panel.-scorpion
-          Companies
-        %td.t-item.name
-          Name:
-        %td.t-item.id
-          ID:
-        %td.t-item.status
-          Nit:
-        %td.t-item.balance
-          Direction:
+        %td.pure-u-1.t-header-item.d-title.-bold.-scorpion
+          %span
+            Companies
+        %td.pure-u-1-4.t-item.name
+          %span
+            Name:
+        %td.pure-u-1-4.t-item.id
+          %span
+            ID:
+        %td.pure-u-1-4.t-item.status
+          %span
+            Nit:
+        %td.pure-u-1-4.t-item.balance
+          %span
+            Direction:
       - @companies.each do |company|
         %tr.pure-u-1.row
-          %td.t-item.name
-            = company.name
-          %td.t-item.id
-            = company.id
-          %td.t-item.status
-            = company.nit
-          %td.t-item.balance
-            = company.direction
-            = " #{company.city} - #{company.country}"
+          %td.pure-u-1-4.t-item.name
+            %span
+              = company.name
+          %td.pure-u-1-4.t-item.id
+            %span
+              = company.id
+          %td.pure-u-1-4.t-item.status
+            %span
+              = company.nit
+          %td.pure-u-1-4.t-item.balance
+            %span
+              = company.direction
+              = " #{company.city} - #{company.country}"

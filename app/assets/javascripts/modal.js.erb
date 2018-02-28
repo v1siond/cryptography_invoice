@@ -12,7 +12,6 @@ $(function() {
     location = $(this).attr('href');
     if ($('#new_invoice').length && $(this).hasClass('partial') == false) {
       $(fadeScreen).addClass(visibleClass);
-      console.log(location);
       $.get(location, function(data) {
         return $(modal_holder_selector).html(data).removeClass('hidden');
       });
@@ -50,6 +49,7 @@ $(function() {
             $(fadeScreen).removeClass(visibleClass);
           }
           else {
+            $('a[href="/products"]').trigger('click');
             $(partial_holder).empty().addClass('hidden');
           }
         case 'client':
@@ -63,6 +63,7 @@ $(function() {
             }, 500);
             $(fadeScreen).removeClass(visibleClass);
           } else {
+            $('a[href="/invoices"]').trigger('click');
             $(partial_holder).empty().addClass('hidden');
           }
       }

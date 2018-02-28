@@ -16,6 +16,7 @@ jQuery(document).ready(function($) {
         taxPercent = 0,
         balance = 0,
         totalBalance = 0;
+    price = price.replace('$', ''); 
     parent.children(4).children('.i-total').text(quantity * price);
     parent.children(4).children('.i-total').attr('value', quantity * price);
     $(fieldContainer).each(function(index, el) {
