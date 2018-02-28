@@ -37,5 +37,5 @@
                 = invoice.balance
             %td.pure-u-1-5.t-item.pdf
               %span
-                = link_to 'Download', invoice_path(invoice), remote: true, class: 'InvoqueModal partial n-link'
+                = link_to 'Download', "#{invoice_path(invoice)}.pdf", class: 'n-link', target: "_blank"
                 = link_to "Delete invoice", invoice_path(invoice), remote: true, :confirm => "Are you sure?", :method => :delete, class: 'delete_invoice'

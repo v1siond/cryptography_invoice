@@ -19,7 +19,10 @@ class InvoicesController < ApplicationController
   def show
     @invoice = Invoice.find(params[:id])
     respond_to do |format|
-      format.html {render :layout=> false}
+      format.html
+      format.pdf do
+        render pdf: 'show'
+      end
     end
   end
 

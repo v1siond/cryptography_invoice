@@ -7,16 +7,22 @@
 }
 .t-body {
   border: .05rem solid $scorpion;
-  dislay: inline-block;
+  width: 100%;
   > .header,
   > .row {
     @include flex_between();
+    box-sizing: border-box;
+    padding: 0;
   }
   > .header {
     background: $wild_sand;
     border: .05rem solid black;
     border-bottom: none;
     box-sizing: border-box;
+  }
+  > tr {
+    display: block;
+    width: 100%;
   }
   &.product-table {
     height: 10rem;
@@ -54,7 +60,6 @@
 .t-item {
   border-bottom: .05rem solid black;
   border-right: .05rem solid black;
-  text-align: center;
   word-break: break-all;
   word-wrap: break-word;
   &:last-child {

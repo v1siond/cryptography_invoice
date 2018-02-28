@@ -14,17 +14,20 @@
   &.-left,
   &.-right {
     margin: 0;
+    max-width: 45%;
   }
   &.-left {
     order: 2;
     text-align: center;
     @include lg {
+      float: left;
       justify-content: flex-start;
       order: 1;
       text-align: left;
     }
   }
   &.-right {
+    float: right;
     order: 1;
     text-align: center;
     @include lg {

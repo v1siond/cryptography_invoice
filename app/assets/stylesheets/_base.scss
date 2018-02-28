@@ -78,3 +78,16 @@ tr {
 .pure-u-1-10 {
   width: 10%;
 }
+
+.full-width {
+  width: 100%;
+}
+
+.h-table,
+.i-table {
+  display: block;
+  width: 100%;
+  td {
+    display: inline-block;
+  }
+}

@@ -21,6 +21,8 @@ gem 'pundit'          # authorization
 gem 'skywalker'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'jquery-ui-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # heroku-like uniqueish ids
 gem 'haikunator'
