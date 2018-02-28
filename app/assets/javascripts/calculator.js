@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
   let productQuantity = '.product_quantity',
       fieldContainer = '.field-container',
-      total = '.i-total';
+      total = 'span.i-total';
 
 
   $(document).on('keyup', productQuantity, function() {
@@ -16,7 +16,8 @@ jQuery(document).ready(function($) {
         taxPercent = 0,
         balance = 0,
         totalBalance = 0;
-    parent.children(4).children(total).text(quantity * price);
+    parent.children(4).children('.i-total').text(quantity * price);
+    parent.children(4).children('.i-total').attr('value', quantity * price);
     $(fieldContainer).each(function(index, el) {
       var check = parseFloat($(this).children(4).children(total).text());
       if (!isNaN(check) && check != 0) {

@@ -1,0 +1,17 @@
+.ui-autocomplete {
+  background: white;
+  border: .05rem solid black;
+  width: 15rem !important;
+  padding: 0;
+  > .ui-menu-item {
+    cursor: pointer;
+    list-style: none;
+    padding: .5rem;
+    text-align: left;
+    transition: $fast_transition; 
+    &:hover {
+      background: $ocean_green;
+      color: white;
+    } 
+  }
+}

@@ -25,7 +25,13 @@ img,
 ol,
 li,
 a,
-figure {
+figure,
+table,
+tbody,
+tfoot,
+th,
+td,
+tr {
   box-sizing: border-box;
   margin: 0;
 }
@@ -40,4 +46,31 @@ figure {
 
 ._text-right {
   text-align: right;
+}
+
+.field {
+  background: none;
+  border: none;
+  padding: .5rem;
+  transition: $fast_transition;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  &:hover {
+    background: $wild_sand;
+  }
+}
+
+#invoice_tax {
+  text-align: center;
+  width: 3rem;
+}
+
+.clients-search {
+  width: 10rem;
+}
+
+.ui-helper-hidden-accessible {
+  display: none !important;
 }

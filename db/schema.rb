@@ -37,27 +37,28 @@ ActiveRecord::Schema.define(version: 20180118214614) do
   add_index "companies", ["nit"], name: "index_companies_on_nit", unique: true, using: :btree
 
   create_table "invoice_products", force: :cascade do |t|
-    t.integer "invoice_id",       null: false
-    t.integer "product_id",       null: false
-    t.integer "product_quantity", null: false
+    t.integer "invoice_id",          null: false
+    t.integer "product_id",          null: false
+    t.integer "product_quantity",    null: false
+    t.float   "product_total_price", null: false
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.datetime "date",       null: false
-    t.float    "balance",    null: false
-    t.float    "tax",        null: false
-    t.boolean  "status",     null: false
-    t.integer  "client_id",  null: false
-    t.integer  "company_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "date",                   null: false
+    t.float    "balance",                null: false
+    t.float    "tax",                    null: false
+    t.integer  "status",     default: 0, null: false
+    t.integer  "client_id",              null: false
+    t.integer  "company_id",             null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",                                 null: false
-    t.decimal  "price",      precision: 64, scale: 12, null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "name",       null: false
+    t.float    "price",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

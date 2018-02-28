@@ -15,11 +15,12 @@ FactoryGirl.define do
     ip.invoice_id 1
     ip.sequence(:product_id) { |n| n }
     ip.product_quantity 3
+    ip.product_total_price 32
   end
 
   factory :invoice do
     date Time.zone.now
-    balance "200.52"
+    balance 200.52
     status true
     client_id 1
     company_id 1

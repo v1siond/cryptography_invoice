@@ -8,3 +8,11 @@
     color: $roti;
   }
 }
+
+.green-button.n-link {
+  color: white;
+  margin: .5rem;
+  &:nth-child(even) {
+    margin-left: 0;
+  }
+}

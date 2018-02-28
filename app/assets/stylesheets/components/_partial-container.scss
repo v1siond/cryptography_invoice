@@ -1,5 +1,7 @@
 .partial-container {
   @include flex_centered();
-  height: 100%;
   width: 100%;
+  @include lg {
+    height: 100%;
+  }
 }

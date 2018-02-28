@@ -1,13 +1,49 @@
+.i-table {
+  margin-bottom: 1rem;
+}
+
+.h-table {
+  margin-top: 1rem;
+}
 .t-body {
-  @include flex_centered();
+  dislay: inline-block;
   > .header,
   > .row {
     @include flex_between();
   }
-  > .row:nth-child(even) {
+  > .header {
     background: $wild_sand;
+    border: .05rem solid black;
+    border-bottom: none;
+    box-sizing: border-box;
+  }
+  &.product-table {
+    border: .05rem solid $scorpion;
+    height: 10rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    > .row:nth-child(even) {
+      background: $wild_sand;
+      border: .05rem solid $scorpion;
+    }
   }
 }
+
+
+.header > .t-item,
+.row  > .t-item > span {
+  display: inline-block;
+  font-size: .5rem !important;
+  padding: .5rem;
+  vertical-align: middle;
+  @include sm {
+    font-size: $medium-font-size !important;
+  }
+  @include lg {
+    font-size: 1rem !important;
+  }
+}
+
 
 .t-item {
   &.name,
@@ -48,5 +84,8 @@
   }
   &.equalFour {
     width: calc(30% - .1rem);
+  }
+  > span {
+    padding: .5rem;
   }
 }

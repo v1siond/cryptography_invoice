@@ -1,69 +1,106 @@
-%header.invoice-header
-  .l-container.-between
-    %h1.pure-u-1.pure-u-lg-1-2.d-title.-invoice
-      Invoice
-    .pure-u-1.pire-u-lg-1-2.company-info-container
-      %ul.company-info
-        %li.pure-u-1.data.d-text.-white
-          = @invoice.company.nit
-        %li.pure-u-1.data.d-text.-white
-          = @invoice.company.name
-      %ul.company-info
-        %li.d-text.-white
-          = @invoice.company.direction
-        %li.d-text.-white
-          = "#{@invoice.company.city}, #{@invoice.company.country}"
-%section.m-section.-invoice
-  .l-container.-between
-    .client-info-container
-      %ul.client-info
-        %li.direction
-          %p.i-header-text.-fullwidth
-            Billed To
+.l-container.-centered
+  .pure-u-22-24.white-box
+    .field-group
+      %h2.d-title.-scorpion.-fullWidth.-right.-big
+        Invoice
+      .pure-u-1.field-set
+        %p.d-text.-fullwidth._text-right
+          %strong.d-title.-mid-size.-scorpion.-right
+            Status: 
+          - if @invoice.status == 1
+            Pago confirmado
+          - else
+            Pago no confirmado
+        %p.d-text.-fullwidth._text-right
+          %strong.d-title.-mid-size.-scorpion
+            Name:
+          = " #{@invoice.company.name}"
+        %p.d-text.-fullwidth._text-right
+          %strong.d-title.-mid-size.-scorpion
+            Nit:
+          = " #{@invoice.company.nit}"
+        %p.d-text.-fullwidth._text-right
+          %strong.d-title.-mid-size.-scorpion
+            Direction:
+          = " #{@invoice.company.direction}"
+          = " #{@invoice.company.city}, #{@invoice.company.country}"
+    %hr.line-division
+    %h3.d-title.-scorpion.-small-size.-left
+      Bill to
+    .field-group.-between
+      .pure-u-1.pure-u-lg-11-24.field-set.-left
+        .pure-u-1._text-left
           %p.d-text.-fullwidth
-            = @invoice.client.name
+            %strong.d-title.-mid-size.-scorpion
+              Name:
+            = " #{@invoice.client.name}"
           %p.d-text.-fullwidth
-            = @invoice.client.identification
+            %strong.d-title.-mid-size.-scorpion
+              ID:
+            = " #{@invoice.client.identification}"
           %p.d-text.-fullwidth
-            = @invoice.client.phone
+            %strong.d-title.-mid-size.-scorpion
+              Phone:
+            = " #{@invoice.client.phone}"
           %p.d-text.-fullwidth
-            = @invoice.client.direction
-      %ul.client-info
-        %li.number
-          %p.i-header-text.-fullwidth
-            Invoice Number
-          %p.d-text.-fullwidth
-            = @invoice.id
-        %li.date
-          %p.i-header-text.-fullwidth
-            Date
-          %p.d-text.-fullwidth
+            %strong.d-title.-mid-size.-scorpion
+              Direction:
+            = " #{@invoice.client.direction}"          
+      .pure-u-1.pure-u-lg-11-24.field-set.-right._text-right
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            = "Invoice #: #{@invoice.id}"
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            = "Invoice date: #{@invoice.date}"
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            Payment Due:
+          %label.d-title.-mid-size.-scorpion.label
             = @invoice.date
-      %ul.client-info
-        %li.balance
-          %p.i-header-text.-fullwidth
-            Balance Total
-          %p.d-text.-fullwidth
-            = @invoice.balance
-        %li.status
-          %p.i-header-text.-fullwidth
-            Status
-          %p.d-text.-fullwidth
-            - if @invoice.status == true
-              Verificado
-            - else
-              Pendiente
-%br
-Date:
-= @invoice.date
-- @invoice.invoice_products.each do |item|
-  %br
-  Product Name
-  %br
-  = item.product.name
-  %br
-  Product price
-  = item.product.price
-  %br
-  Product quantity
-  = item.product_quantity
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            = "Tax #: #{@invoice.tax}%"
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            Amount Due (USD):
+            %span.balance
+              = @invoice.balance
+    %table.pure-u-1.h-table
+      %tbody.pure-u-1.t-body
+        %tr.pure-u-1.header
+          %td.t-item.pure-u-1-5
+            Name:
+          %td.t-item.pure-u-1-5
+            ID:
+          %td.t-item.pure-u-1-5
+            Quantity:
+          %td.t-item.pure-u-1-5
+            Price:
+          %td.t-item.pure-u-1-5
+            Total:
+    %table.pure-u-1.i-table
+      %tbody.pure-u-1.t-body.product-table
+        - @invoice.invoice_products.each do |item|
+          %tr.pure-u-1.row.field-container
+            %td.t-item.pure-u-1-5
+              %span
+                = item.product.name
+            %td.t-item.pure-u-1-5.i-id
+              %span
+                = item.product.id
+            %td.t-item.pure-u-1-5
+              %span
+                = item.product_quantity
+            %td.t-item.pure-u-1-5
+              $
+              %span.i-price
+                = item.product.price
+            %td.t-item.pure-u-1-5
+              $
+              %span.i-price
+                = item.product_total_price
+    .pure-u-1.i-balance._text-right
+      %strong.d-title.-mid-size.-scorpion
+        Balance total: $
+        = @invoice.balance

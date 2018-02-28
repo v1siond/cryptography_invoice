@@ -7,7 +7,6 @@
   text-shadow: $white_text_shadow;
   text-transform: uppercase;
   transition: $fast_transition;
-  width: 100%;
   @include lg {
     font-size: 1.5rem;
   }
@@ -78,5 +77,8 @@
   &.-panel > p,
   &.-panel > a {
     margin-bottom: 1rem;
+  }
+  &.-fullWidth {
+    width: 100%;
   }
 }

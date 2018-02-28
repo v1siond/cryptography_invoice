@@ -34,7 +34,7 @@ app.Clients.prototype = {
 
 app.Products = function(id) {
   this._input = $('#'+id);
-  this._inputHide = $('.product_id');
+  this._inputHide = '.product_id';
   this._initAutocomplete();
 };
 
@@ -61,10 +61,11 @@ app.Products.prototype = {
   },
 
   _select: function(e, ui) {
+    console.log(this._input);
     this._input.val(ui.item.name);
-    this._inputHide.val(ui.item.id);
     var parent = this._input.parents('.field-container');
-    parent.children('.i-id').text(ui.item.id);
+    parent.children('.t-item').children('.i-id').text(ui.item.id);
+    parent.children('.t-item').children(this._inputHide).val(ui.item.id);
     parent.children(3).children('.i-price').text(ui.item.price);
     parent.children(4).children('.i-total').text(ui.item.price);
     return false;

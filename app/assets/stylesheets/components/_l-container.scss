@@ -13,7 +13,9 @@
     justify-content: flex-end;
   }
   &.-invoice {
-    max-height: 100%;
+    @include lg {
+      max-height: 100%;
+    }
   }
 }
 
