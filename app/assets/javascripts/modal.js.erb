@@ -47,8 +47,7 @@ $(function() {
               })).val(dataJson[0].id);
             }, 500);
             $(fadeScreen).removeClass(visibleClass);
-          }
-          else {
+          } else {
             $('a[href="/products"]').trigger('click');
             $(partial_holder).empty().addClass('hidden');
           }
@@ -63,7 +62,7 @@ $(function() {
             }, 500);
             $(fadeScreen).removeClass(visibleClass);
           } else {
-            $('a[href="/invoices"]').trigger('click');
+            $('a[href="/clients"]').trigger('click');
             $(partial_holder).empty().addClass('hidden');
           }
       }
