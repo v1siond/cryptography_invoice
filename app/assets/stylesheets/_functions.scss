@@ -1,0 +1,11 @@
+@function button-gradient-background($color) {
+  @return linear-gradient(to bottom, $color 30%, darken($color, 15%) 100%);
+}
+
+@function button-gradient-background-hover($color) {
+  @return linear-gradient(to bottom, darken($color, 15%), darken($color, 15%) 100%);
+}
+
+@function gradient-TwoColor($color, $color2) {
+  @return linear-gradient(to right, $color, $color2 100%);
+}

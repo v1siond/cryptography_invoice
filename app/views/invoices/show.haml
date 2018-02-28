@@ -1,0 +1,69 @@
+%header.invoice-header
+  .l-container.-between
+    %h1.pure-u-1.pure-u-lg-1-2.d-title.-invoice
+      Invoice
+    .pure-u-1.pire-u-lg-1-2.company-info-container
+      %ul.company-info
+        %li.pure-u-1.data.d-text.-white
+          = @invoice.company.nit
+        %li.pure-u-1.data.d-text.-white
+          = @invoice.company.name
+      %ul.company-info
+        %li.d-text.-white
+          = @invoice.company.direction
+        %li.d-text.-white
+          = "#{@invoice.company.city}, #{@invoice.company.country}"
+%section.m-section.-invoice
+  .l-container.-between
+    .client-info-container
+      %ul.client-info
+        %li.direction
+          %p.i-header-text.-fullwidth
+            Billed To
+          %p.d-text.-fullwidth
+            = @invoice.client.name
+          %p.d-text.-fullwidth
+            = @invoice.client.identification
+          %p.d-text.-fullwidth
+            = @invoice.client.phone
+          %p.d-text.-fullwidth
+            = @invoice.client.direction
+      %ul.client-info
+        %li.number
+          %p.i-header-text.-fullwidth
+            Invoice Number
+          %p.d-text.-fullwidth
+            = @invoice.id
+        %li.date
+          %p.i-header-text.-fullwidth
+            Date
+          %p.d-text.-fullwidth
+            = @invoice.date
+      %ul.client-info
+        %li.balance
+          %p.i-header-text.-fullwidth
+            Balance Total
+          %p.d-text.-fullwidth
+            = @invoice.balance
+        %li.status
+          %p.i-header-text.-fullwidth
+            Status
+          %p.d-text.-fullwidth
+            - if @invoice.status == true
+              Verificado
+            - else
+              Pendiente
+%br
+Date:
+= @invoice.date
+- @invoice.invoice_products.each do |item|
+  %br
+  Product Name
+  %br
+  = item.product.name
+  %br
+  Product price
+  = item.product.price
+  %br
+  Product quantity
+  = item.product_quantity

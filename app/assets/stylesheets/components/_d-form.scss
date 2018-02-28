@@ -1,0 +1,35 @@
+.d-form {
+  > .fieldset {
+    @include flex_between();
+    &.-center {
+      @include flex_centered;
+    }
+  }
+  > .fieldset > .label {
+    align-self: center;
+    color: $scorpion;
+    font-family: $secondary-font-family;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    @include md {
+      text-align: left;
+      width: 40%;
+    }
+  }
+  > .fieldset > .field,
+  > .fieldset > .length {
+    width: 100%;
+    @include md {
+      width: 60%;
+    }
+  }
+  > .fieldset > .field {
+    margin: .5rem 0;
+    padding: .5rem;
+  }
+}
+
+.d-form.invoice {
+  border-radius: 0;
+}

@@ -1,0 +1,100 @@
+.l-container.-centered.-invoice
+  = form_for @invoice, url: invoices_path, remote: true, html: { class: 'pure-u-22-24 white-box -no-round remote_form invoice i-form' } do |f|
+    = render "layouts/error_messages", target: @invoice
+    .field-group
+      %h2.d-title.-scorpion.-right.-big
+        Invoice
+      .pure-u-1.field-set
+        %strong.d-title.-mid-size.-scorpion
+          Status:
+        = f.label :status, 'Pago no confirmado', :class => 'd-title -mid-size -scorpion label'
+        = f.hidden_field :status, :class => 'field', value: 0
+      .pure-u-1.field-set
+        %strong.d-title.-mid-size.-scorpion
+          = f.label :company_id, 'Factura emitida por: ', :class => 'd-title -mid-size -scorpion label'
+        = f.collection_select :company_id, Company.order(:name), :id, :name, include_blank: true, :class => 'field'
+    %hr.line-division
+    %h3.d-title.-scorpion.-small-size.-left
+      Bill to
+    .field-group.-between
+      .pure-u-1.pure-u-lg-11-24.field-set.-left
+        .pure-u-1._text-left
+          %strong.d-title.-mid-size.-scorpion
+            = f.label :client_id, 'Cliente:', :class => 'd-title -mid-size -scorpion label'
+          = f.hidden_field :client_id, :class => 'field client_id'
+          %input{type: 'text', class: 'clients-search field', placeholder: 'Client Name or ID'}
+          %article.clients-search-results
+        = link_to 'Add Client', new_client_path, remote: true, class: 'InvoqueModal n-link'
+        = link_to_add_products 'Add Product', f, :invoice_products
+      .pure-u-1.pure-u-lg-11-24.field-set.-right._text-right
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            = "Invoice #: #{@invoiceNumber}"
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            Invoice Date:
+          = f.label :date, Date.today.to_s, :class => 'd-title -mid-size -scorpion label'
+          = f.hidden_field :date, value: Date.today.to_s, :class => 'field'
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            Payment Due:
+          = f.label :date, Date.today.to_s, :class => 'd-title -mid-size -scorpion label'
+        .pure-u-1.invoice-info
+          = f.label :tax, :class => 'd-title -mid-size -scorpion label'
+          = f.text_field :tax, :class => 'field', value: 0
+          = '%'
+        .pure-u-1.invoice-info
+          %strong.d-title.-mid-size.-scorpion
+            Amount Due (USD):
+            %span.balance
+    %table.pure-u-1.i-table
+      %tbody.pure-u-1.t-body.product-table
+        %tr.pure-u-1.header
+          %td.t-item.pure-u-1.pure-u-lg-1-3
+            Name:
+          %td.t-item.pure-u-1.pure-u-lg-1-12
+            ID:
+          %td.t-item.pure-u-1.pure-u-lg-1-5
+            Quantity:
+          %td.t-item.pure-u-1.pure-u-lg-1-12
+            Price:
+          %td.t-item.pure-u-1.pure-u-lg-1-8
+            Total:
+          %td.t-item.pure-u-1.pure-u-lg-1-24
+        = f.fields_for :invoice_products do |builder|
+          = render 'invoice_product_fields', f: builder
+    .products-search-results
+    .pure-u-1.i-balance
+      = f.label :balance, :class => 'd-title -mid-size -scorpion label'
+      %strong.d-title.-mid-size.-scorpion
+        Total:
+      %span.balance
+      = f.hidden_field :balance, :class => 'field', value: '0.00'
+    = f.submit "Add invoice", :class => 'green-button'
+
+:javascript
+
+  $('.add_product').click(function() {
+    var time = jQuery.now();
+    var regexp = RegExp($(this).data('id'), 'g');
+    var Iclass = 'products-search_' + time;
+    var Pclass = 'product-search products-search_' + time;
+    $('.product-table').append($(this).data('fields').replace(regexp, time).replace('products-search', Pclass));
+    $('.' + Iclass).attr('id', Iclass);
+    $(function() {
+      new app.Products(Iclass);
+    });
+  });
+
+  $('form').bind('click', function(event) {
+    var clicked_element = $(event.target);
+    if (clicked_element.attr('class') == 'remove_product') {
+      var parent = clicked_element.parents('.row');
+      parent.children('.destroy').attr('value', 1);
+      parent.remove();
+    }
+  });
+
+  $(function() {
+    new app.Clients;
+  });

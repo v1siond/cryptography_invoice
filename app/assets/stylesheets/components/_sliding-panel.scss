@@ -1,0 +1,44 @@
+.sliding-panel {
+  background: asset_url('banner.png') no-repeat fixed;
+  background-size: cover;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  overflow: auto;
+  position: fixed;
+  right: -12rem;
+  top: 0;
+  transition: right 0.3s ease-in-out;
+  width: 12rem;
+  z-index: 9;
+  &.is-visible {
+    right: 0;
+  }
+  @include lg {
+    padding: 4rem 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: .75rem;
+    position: relative;
+    z-index: 4;
+    li {
+      margin-bottom: .5rem;
+      a {
+        color: white;
+        font-family: $secondary-font-family;
+        font-size: $medium-font-size;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        &.active {
+          color: $dd_blue;
+        }
+      }
+    }
+  }
+  .pure-menu-item {
+    height: auto;
+    white-space: normal;
+  }
+}

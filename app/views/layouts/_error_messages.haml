@@ -1,0 +1,6 @@
+- if flash[:quote_errors]
+  %ul
+    - flash[:quote_errors].each do |msg|
+      %li
+        = msg
+    end

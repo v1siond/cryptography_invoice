@@ -1,0 +1,69 @@
+.invoice-header
+  = link_to root_path do
+    .img-logo
+  .invoice-headline
+    %div.company-info
+      %p Concur Messaging, Inc. (dba DailyDrip)
+      %p 6019 Riverview Drive, Birmingham, AL, 35210
+    %div.supp-link
+      %p support@dailydrip.com
+      %p www.dailydrip.com
+
+.invoice-billto
+  .bill-to
+    %h3 Billed To
+    - if customer_data[:name] && customer_data[:name].exclude?(customer_data[:email])
+      %p= customer_data[:name]
+      %p= customer_data[:email]
+    - else
+      %p= customer_data[:email]
+  .date-status
+    %ul.invoice-info
+      %li
+        %h3 Date:
+        %p= Time.at(customer_data[:invoice][:line_items].select { |i| i[:proration] == false }.last[:period][:start]).to_date.strftime("%m/%d/%Y")
+      %li
+        %h3 Due date:
+        %p= Time.at(customer_data[:invoice][:line_items].select { |i| i[:proration] == false }.last[:period][:end]).to_date.strftime("%m/%d/%Y")
+      %li
+        %h3 Terms:
+        %p Net 30
+      %li
+        %h3 Status:
+        %p= customer_data[:invoice][:status]
+  .invoice-number
+    %h3 Invoice #
+    %p.number
+      = "DD-#{customer_data[:id]}-#{customer_data[:created]}"
+
+.plan-info
+  .plan-header
+    %p Description
+    %p.right Amount
+  .division
+  - customer_data[:invoice][:line_items].each do |item|
+    - if item[:description].present?
+      .plan-cost
+        %p= item[:description]
+        %p.right
+          = item[:amount] / 100
+          = '.00'
+    - else
+      .plan-cost
+        %p= item[:plan][:name]
+        %p.right
+          = item[:amount] / 100
+          = '.00'
+  .division
+  .balance
+    %h3 Balance Due:
+    - amount = customer_data[:invoice][:line_items].sum { |item| item[:amount] / 100 }
+    - balance_due = amount < 0 ? "-$#{amount.abs}" : "$#{amount}"
+    %p= balance_due
+
+.customer-notes
+  .customer-header
+    %h3 Customer Notes
+  .division
+  .customer-info
+    %p= "Attention: #{customer_data[:custom_notes]}"

@@ -1,0 +1,10 @@
+.white-box {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: $container_shadow;
+  padding: 1rem;
+  text-align: center;
+  @include md {
+    padding: 2rem;
+  }
+}

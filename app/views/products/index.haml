@@ -1,0 +1,24 @@
+.l-container.-centered
+  %table.pure-u-1.m-table.white-box
+    %tbody.pure-u-1.t-body
+      %tr.pure-u-1.header
+        %td.pure-u-1.t-header-item.d-title.-bold.-panel.-scorpion
+          Products
+        %td.t-item.p-id
+          ID:
+        %td.t-item.equalFour
+          Name:
+        %td.t-item.equalFour
+          Price:
+        %td.t-item.equalFour
+          Actions:
+      - @products.each do |product|
+        %tr.pure-u-1.row
+          %td.t-item.p-id
+            = product.id
+          %td.t-item.equalFour
+            = product.name
+          %td.t-item.equalFour
+            = product.price
+          %td.t-item.equalFour
+            = link_to 'See Product', product_path(product), remote: true, class: 'InvoqueModal partial n-link'

@@ -1,0 +1,11 @@
+.m-footer {
+  @include flex_centered();
+  background: asset_url('banner.png') no-repeat fixed;
+  background-size: cover;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  @include lg {
+    width: 100%;
+  }
+}

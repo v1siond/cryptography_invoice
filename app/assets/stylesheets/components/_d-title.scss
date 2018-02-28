@@ -1,0 +1,82 @@
+.d-title,
+.d-title > p,
+.d-title > a {
+  color: white;
+  font-family: $secondary-font-family;
+  text-align: center;
+  text-shadow: $white_text_shadow;
+  text-transform: uppercase;
+  transition: $fast_transition;
+  width: 100%;
+  @include lg {
+    font-size: 1.5rem;
+  }
+  &.-banner,
+  &.-banner > p,
+  &.-banner > a {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 auto;
+    position: absolute;
+    width: 20%;
+    @include lg {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+  }
+  &.-scorpion,
+  &.-scorpion > p,
+  &.-scorpion > a {
+    color: $scorpion;
+    text-shadow: none;
+  }
+  &.-big {
+    font-size: 3rem;
+  }
+  &.-mid-size,
+  &.-mid-size > p,
+  &.-mid-size > a {
+    font-size: 1rem;
+  }
+  &.-small-size,
+  &.-small-size > p,
+  &.-small-size > a {
+    font-size: $medium-font-size;
+  }
+
+  &.-bold,
+  &.-bold > p,
+  &.-bold > a {
+    font-weight: bold;
+  }
+  &.-noUppercase,
+  &.-noUppercase > p,
+  &.-noUppercase > a {
+    text-transform: unset;
+  }
+  &.-left,
+  &.-left > p,
+  &.-left > a {
+    text-align: left;
+  }
+  &.-right,
+  &.-right > p,
+  &.-right > a {
+    text-align: right;
+  }
+  &.-lato,
+  &.-lato > p,
+  &.-lato > a {
+    font-family: $primary-font-family;
+  }
+  &.-light,
+  &.-light > p,
+  &.-light > a {
+    font-weight: 300;
+  }
+  &.-panel,
+  &.-panel > p,
+  &.-panel > a {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,22 @@
+.l-container.-centered
+  = form_for @company, url: companies_path, authenticity_token: true, remote: true, html: { class: 'pure-u-22-24 pure-u-sm-4-5 d-form remote_form company white-box' } do |f|
+    %h3.d-title.-panel.-scorpion
+      New company
+    = render "layouts/error_messages", :target => @company
+    .pure-u-1.fieldset
+      = f.label :name, :class => 'label'
+      = f.text_field :name, placeholder: 'Company Name', :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :nit, :class => 'label'
+      = f.text_field :nit, placeholder: 'Company Nit', :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :direction, :class => 'label'
+      = f.text_field :direction, placeholder: 'Company Nit', :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :city, :class => 'label'
+      = f.text_field :city, placeholder: 'Company Nit', :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :country, :class => 'label'
+      = f.text_field :country, placeholder: 'Company Nit', :class => 'field'
+    = f.hidden_field :user_id, :value => User.first.id
+    = f.submit "Add company", :class => 'green-button'

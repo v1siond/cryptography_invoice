@@ -1,0 +1,35 @@
+.green-button {
+  background: button-gradient-background($ocean_green);
+  border: none;
+  border-radius: .3rem;
+  box-shadow: $button_shadow;
+  color: white;
+  cursor: pointer;
+  font-family: $secondary-font-family;
+  font-size: $medium-font-size;
+  font-weight: bold;
+  padding: .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: $fast_transition;
+  white-space: normal;
+  z-index: 1;
+  @include lg {
+    font-size: .85rem;
+  }
+  &:hover {
+    background: button-gradient-background-hover($roti);
+    box-shadow: $container_hover_shadow;
+    color: white;
+    transform: translateY(-.1rem);
+  }
+  > div,
+  > span,
+  > a,
+  > p {
+    cursor: pointer;
+  }
+  &.-danger:hover {
+    background: button-gradient-background-hover(lighten(red, 30%));
+  }
+}

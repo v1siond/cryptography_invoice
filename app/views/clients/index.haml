@@ -1,0 +1,28 @@
+.l-container.-centered
+  %table.pure-u-1.m-table.white-box
+    %tbody.pure-u-1.t-body
+      %tr.pure-u-1.header
+        %td.pure-u-1.t-header-item.d-title.-bold.-panel.-scorpion
+          Clients
+        %td.t-item.name
+          Name:
+        %td.t-item.id
+          Direction:
+        %td.t-item.status
+          Phone:
+        %td.t-item.balance
+          ID:
+        %td.t-item.pdf
+          Perfil:
+      - @clients.each do |client|
+        %tr.pure-u-1.row
+          %td.t-item.name
+            = client.name
+          %td.t-item.id
+            = client.direction
+          %td.t-item.status
+            = client.phone
+          %td.t-item.balance
+            = client.identification
+          %td.t-item.pdf
+            = link_to 'See Client', client_path(client), remote: true, class: 'InvoqueModal partial n-link'

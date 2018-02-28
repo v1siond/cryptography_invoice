@@ -1,0 +1,38 @@
+%html
+  %head
+    %title= content_for?(:title) ? "#{yield(:title)} | Cryptography and Solutions Invoices" : "Cryptography and Solutions Invoices"
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{:name => "description",                                         |
+          :content => content_for?(:description) ? yield(:description) :  |
+          "Invoices - Cryptography and Solutions"}/    |
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', "data-turbolinks-track" => true
+    = javascript_include_tag 'application', "data-turbolinks-track" => true
+%header.b-container.-login
+  .fade-screen.is-visible.-login
+  %h1.pure-u-22-24.pure-u-sm-3-4.pure-u-md-2-3.pure-u-lg-1-2.logo-header
+    = image_tag('logo.png', class: 'image')
+  %figure.b-background.-login
+  .l-container.-centered
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'pure-u-3-4 pure-u-sm-2-3 pure-u-lg-1-2 d-form -login white-box' }) do |f|
+      .pure-u-1.fieldset
+        = f.label :email, :class => 'label'
+        = f.email_field :email, autofocus: true, autocomplete: "email", :class => 'field'
+      .pure-u-1.fieldset
+        = f.label :password, :class => 'label'
+        = f.password_field :password, autocomplete: "off", :class => 'field'
+      .pure-u-1.fieldset
+        - if devise_mapping.rememberable?
+          .remember
+            = f.check_box :remember_me, :class => 'checked-checkbox hidden'
+            %label.green-checkbox{for: 'user_remember_me'}
+            %label{for: 'user_remember_me'}
+              Remember me
+        = f.submit "Log in", :class => 'green-button'
+      = render "devise/shared/links"
+
+%footer.m-footer.-login
+  .l-container.-centered
+    %p.d-title.-white.-small-size
+      Copyright: Cryptography and Solutions

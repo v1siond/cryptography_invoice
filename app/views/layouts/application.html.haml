@@ -1,0 +1,15 @@
+%html
+  %head
+    %title= content_for?(:title) ? "#{yield(:title)} | Cryptography and Solutions Invoices" : "Cryptography and Solutions Invoices"
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{:name => "description",                                         |
+          :content => content_for?(:description) ? yield(:description) :  |
+          "Invoices - Cryptography and Solutions"}/    |
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', "data-turbolinks-track" => true
+    = javascript_include_tag 'application', "data-turbolinks-track" => true
+  %body
+    = render 'layouts/nav_menu'
+    = yield
+    = render 'layouts/footer'

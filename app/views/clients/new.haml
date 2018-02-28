@@ -1,0 +1,18 @@
+.l-container.-centered
+  = form_for @client, url: clients_path, remote: true, html: { class: 'pure-u-22-24 pure-u-sm-4-5 d-form remote_form client white-box' } do |f|
+    %h3.d-title.-panel.-scorpion
+      New client
+    = render "layouts/error_messages", target: @client
+    .pure-u-1.fieldset
+      = f.label :name, :class => 'label'
+      = f.text_field :name, placeholder: 'Client Name', :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :direction, :class => 'label'
+      = f.text_field :direction, placeholder: 'Client Direction', :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :phone, :class => 'label'
+      = f.text_field :phone, placeholder: 'Client Phone', :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :identification, :class => 'label'
+      = f.text_field :identification, placeholder: 'Client ID', :class => 'field'
+    = f.submit "Add client", :class => 'green-button'

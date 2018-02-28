@@ -1,0 +1,52 @@
+.t-body {
+  @include flex_centered();
+  > .header,
+  > .row {
+    @include flex_between();
+  }
+  > .row:nth-child(even) {
+    background: $wild_sand;
+  }
+}
+
+.t-item {
+  &.name,
+  &.id,
+  &.status,
+  &.pdf,
+  &.balance,
+  &.equalFour,
+  &.p-id {
+    border: .05rem solid black;
+    padding: .25rem 0;
+    text-align: center;
+  }
+  &.name {
+    width: calc(75% - 9.5rem);
+    @include sm {
+      width: calc(50% - 9.5rem);
+    }
+  }
+  &.id {
+    display: none;
+    @include sm {
+      display: block;
+      width: 25%;
+    }
+  }
+  &.status {
+    width: 4rem;
+  }
+  &.balance {
+    width: 25%;
+  }
+  &.pdf {
+    width: 5rem;
+  }
+  &.p-id {
+    width: calc(10% - .1rem);
+  }
+  &.equalFour {
+    width: calc(30% - .1rem);
+  }
+}

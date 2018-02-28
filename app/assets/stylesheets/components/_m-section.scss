@@ -1,0 +1,14 @@
+.m-section {
+  @include flex_centered();
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  &.-panel {
+    background-color: rgba($sage, .6);
+    min-height: calc(100vh - 9.75rem);
+    @include lg {
+      height: calc(100vh - 11.9rem);
+      min-height: auto;
+    }
+  }
+}

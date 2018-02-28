@@ -1,0 +1,22 @@
+.l-container.-centered
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'pure-u-22-24 pure-u-sm-2-3 d-form -login white-box' }) do |f|
+    %h3.d-title.-panel.-scorpion
+      Admin sign up
+    = devise_error_messages!
+    .pure-u-1.fieldset
+      = f.label :email, :class => 'label'
+      = f.email_field :email, autofocus: true, autocomplete: "email", :class => 'field'
+    .pure-u-1.fieldset
+      .space
+      .length
+        - if @minimum_password_length
+          (
+          = @minimum_password_length
+          characters minimum)
+    .pure-u-1.fieldset
+      = f.label :password, :class => 'label'
+      = f.password_field :password, autocomplete: "off", :class => 'field'
+    .pure-u-1.fieldset
+      = f.label :password_confirmation, :class => 'label'
+      = f.password_field :password_confirmation, autocomplete: "off", :class => 'field'
+    = f.submit "Add Admin", :class => 'green-button'

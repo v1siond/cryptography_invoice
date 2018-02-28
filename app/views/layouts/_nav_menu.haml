@@ -1,0 +1,25 @@
+%nav.pure-menu.sliding-panel
+  .fade-screen.is-visible.-internal
+  %ul.pure-menu-list
+    %li.pure-menu-item
+      = link_to 'Add Admin', new_user_registration_path, remote: true, class: 'InvoqueModal partial n-link'
+    %li.pure-menu-item
+      = link_to 'Add Client', new_client_path, remote: true, class: 'InvoqueModal n-link'
+    %li.pure-menu-item
+      = link_to 'Add Product', new_product_path, remote: true, class: 'InvoqueModal n-link'
+    %li.pure-menu-item
+      = link_to 'New company', new_company_path, remote: true, class: 'InvoqueModal partial n-link'
+    %li.pure-menu-item
+      = link_to 'New invoice', new_invoice_path, remote: true, class: 'InvoqueModal partial n-link'
+    %li.pure-menu-item
+      = link_to 'Client List', clients_path, remote: true, class: 'InvoqueModal partial n-link'
+    %li.pure-menu-item
+      = link_to 'Product List', products_path, remote: true, class: 'InvoqueModal partial n-link'
+    %li.pure-menu-item
+      = link_to 'Ínvoice List', invoices_path, remote: true, class: 'InvoqueModal partial n-link'
+    %li.pure-menu-item
+      = link_to 'Company List', companies_path, remote: true, class: 'InvoqueModal partial n-link'
+    %li.pure-menu-item
+      = link_to 'Sign out', logout_path, class: 'n-link'
+%i.fa.fa-bars.burger-button
+.fade-screen.-external.-menu

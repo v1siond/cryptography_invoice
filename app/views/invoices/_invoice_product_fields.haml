@@ -1,0 +1,17 @@
+%tr.pure-u-1.row.field-container
+  %td.t-item.pure-u-1.pure-u-lg-1-3
+    = f.label :product_id, :class => 'label'
+    = f.hidden_field :product_id, :class => 'field product_id'
+    %input{type: 'text', class: 'products-search field', placeholder: 'Product Name or ID'}
+  %td.t-item.pure-u-1.pure-u-lg-1-12.i-id
+  %td.t-item.pure-u-1.pure-u-lg-1-5
+    = f.text_field :product_quantity, placeholder: 'Product quantity', class: 'product_quantity pure-u-1'
+  %td.t-item.pure-u-1.pure-u-lg-1-12
+    $
+    %span.i-price
+  %td.t-item.pure-u-1.pure-u-lg-1-8
+    $
+    %span.i-total
+  %td.t-item.pure-u-1.pure-u-lg-1-24
+    = f.hidden_field :_destroy, class: 'destroy'
+    = link_to 'x', '#', class: 'remove_product'

@@ -1,0 +1,25 @@
+.l-container.-centered
+  %table.pure-u-1.m-table.white-box
+    %tbody.pure-u-1.t-body
+      %tr.pure-u-1.header
+        %td.pure-u-1.t-header-item.d-title.-bold.-panel.-scorpion
+          Companies
+        %td.t-item.name
+          Name:
+        %td.t-item.id
+          ID:
+        %td.t-item.status
+          Nit:
+        %td.t-item.balance
+          Direction:
+      - @companies.each do |company|
+        %tr.pure-u-1.row
+          %td.t-item.name
+            = company.name
+          %td.t-item.id
+            = company.id
+          %td.t-item.status
+            = company.nit
+          %td.t-item.balance
+            = company.direction
+            = " #{company.city} - #{company.country}"

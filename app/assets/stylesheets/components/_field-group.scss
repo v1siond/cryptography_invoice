@@ -1,0 +1,6 @@
+.field-group {
+  @include flex_centered();
+  &.-between {
+    justify-content: space-between;
+  }
+}

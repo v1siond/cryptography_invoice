@@ -1,0 +1,10 @@
+.n-link {
+  color: $ocean_green;
+  font-family: $primary-font-family;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: $fast_transition;
+  &:hover {
+    color: $roti;
+  }
+}

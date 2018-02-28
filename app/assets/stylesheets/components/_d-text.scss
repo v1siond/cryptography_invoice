@@ -1,0 +1,35 @@
+.d-text {
+  color: $scorpion;
+  &.-center {
+    text-align: center;
+  }
+  &.-white {
+    color: white;
+    text-shadow: .1rem .1rem .3rem lighten($scorpion, 15%);
+  }
+  &.-blue {
+    color: $dd_blue;
+  }
+  &.-small {
+    font-size: .65rem;
+    line-height: .85rem;
+  }
+  &.-newsletter {
+    margin-bottom: .5rem;
+  }
+  &.-secondary {
+    font-family: $secondary-font-family;
+  }
+  &.-light {
+    font-weight: 300;
+  }
+  &.-mid-small {
+    font-size: $medium-font-size;
+  }
+  &.-smaller {
+    font-size: $small-font-size;
+  }
+  &.-vertical-margin {
+    margin: .5rem auto;
+  }
+}

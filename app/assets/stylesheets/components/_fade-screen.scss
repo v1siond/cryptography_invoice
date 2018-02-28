@@ -1,0 +1,43 @@
+.fade-screen {
+  @include flex_centered();
+  background: rgba(black, .3);
+  height: 0;
+  opacity: 0;
+  position: fixed;
+  transition: opacity 0.2s ease-in-out, width 0s 0.3s, height 0s 0.3s;
+  width: 0;
+  z-index: 8;
+  > .close {
+    color: white;
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: bold;
+    right: 5%;
+    position: absolute;
+    text-shadow: $white_text_shadow;
+    top: 5%;
+    transition: $fast_transition;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &.is-visible {
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    top: 0;
+    transition: opacity 0.2s ease-in-out;
+    width: 100%;
+  }
+  &.-modal {
+    z-index: 9;
+  }
+  &.-login {
+    z-index: 1;
+  }
+  &.-internal {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+}

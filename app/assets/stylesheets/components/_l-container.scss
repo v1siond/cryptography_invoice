@@ -1,0 +1,32 @@
+.l-container {
+  max-width: $xl;
+  padding: 1rem;
+  width: 100%;
+  @include lg {
+    padding: 2rem;
+  }
+  &.-centered {
+    @include flex_centered();
+  }
+  &.-right {
+    @include display_flex();
+    justify-content: flex-end;
+  }
+  &.-invoice {
+    max-height: 100%;
+  }
+}
+
+.b-container.-login > .l-container {
+  z-index: 1;
+  @include sm {
+    padding: 6rem 1rem 1rem;
+  }
+  @include md {
+    padding: 1rem;
+  }
+}
+
+.m-footer > .l-container {
+  z-index: 4;
+}

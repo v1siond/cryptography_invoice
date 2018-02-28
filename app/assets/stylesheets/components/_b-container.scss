@@ -1,0 +1,17 @@
+.b-container {
+  @include flex_centered();
+  outline: 0.05rem solid transparent;
+  position: relative;
+  width: 100%;
+  > .d-title {
+    margin: 1rem 0;
+    text-shadow: $white_text_shadow;
+  }
+  &.-login {
+    height: 100vh;
+  }
+  &.-panel {
+    height: 5rem;
+    overflow: hidden;
+  }
+}

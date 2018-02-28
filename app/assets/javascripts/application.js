@@ -12,5 +12,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+//= require jquery-ui/autocomplete
+//= require app
+//= require search
+//= require calculator
+
+jQuery(document).ready(function($) {
+  var fadeScreen = '.fade-screen.-external.-menu';
+  var slidePanel = '.sliding-panel';
+  var visibleClass = 'is-visible';
+  $('.burger-button').click(function() {
+    if ($(this).hasClass(visibleClass) == true) {
+      $(this).add(fadeScreen).add(slidePanel).removeClass(visibleClass);
+    } else {
+      $(this).add(fadeScreen).add(slidePanel).addClass(visibleClass);
+    }
+  });
+
+});

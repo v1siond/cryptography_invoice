@@ -20,6 +20,7 @@ gem 'devise'          # authentication
 gem 'pundit'          # authorization
 gem 'skywalker'
 gem "recaptcha", require: "recaptcha/rails"
+gem 'jquery-ui-rails'
 
 # heroku-like uniqueish ids
 gem 'haikunator'
