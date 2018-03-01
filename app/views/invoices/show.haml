@@ -12,7 +12,7 @@
     = wicked_pdf_javascript_include_tag "application", "data-turbolinks-track" => true
   .pure-u-1
     .l-container
-      .l-container.field-group
+      .l-container.field-group.-end
         %h2.d-title.-scorpion.-fullWidth.-right.-big
           Invoice
         .full-width.field-set
@@ -29,7 +29,7 @@
             = " #{@invoice.company.name}"
           %p.d-text.-fullwidth._text-right
             %strong.d-title.-mid-size.-scorpion
-              Nit:
+              ID:
             = " #{@invoice.company.nit}"
           %p.d-text.-fullwidth._text-right
             %strong.d-title.-mid-size.-scorpion
@@ -48,10 +48,6 @@
               %strong.d-title.-mid-size.-scorpion
                 ID:
               = " #{@invoice.client.identification}"
-            %p.d-text.-fullwidth
-              %strong.d-title.-mid-size.-scorpion
-                Phone:
-              = " #{@invoice.client.phone}"
             %p.d-text.-fullwidth
               %strong.d-title.-mid-size.-scorpion
                 Direction:

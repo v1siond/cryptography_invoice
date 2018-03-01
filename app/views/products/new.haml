@@ -5,8 +5,8 @@
     = render "layouts/error_messages", :target => @product
     .pure-u-1.fieldset
       = f.label :name, :class => 'label'
-      = f.text_field :name, placeholder: 'product Name', :class => 'field'
+      = f.text_field :name, placeholder: 'Product name', :class => 'field'
     .pure-u-1.fieldset
       = f.label :price, :class => 'label'
-      = f.text_field :price, placeholder: 'product Price', :class => 'field'
+      = f.text_field :price, placeholder: 'Product price ( just numbers )', :class => 'field'
     = f.submit "Add product", :class => 'green-button'
