@@ -11,7 +11,7 @@
         = f.hidden_field :status, :class => 'field', value: 0
       .pure-u-1.field-set
         %strong.d-title.-mid-size.-scorpion
-          = f.label :company_id, 'Factura emitida por: ', :class => 'd-title -mid-size -scorpion label'
+          = f.label :company_id, 'Emits: ', :class => 'd-title -mid-size -scorpion label'
         = f.collection_select :company_id, Company.order(:name), :id, :name, include_blank: true, :class => 'field'
     %hr.line-division
     .field-group.-between
@@ -67,9 +67,8 @@
           = render 'invoice_product_fields', f: builder
     .products-search-results
     .pure-u-1.i-balance._text-right
-      = f.label :balance, :class => 'd-title -mid-size -scorpion label'
       %strong.d-title.-mid-size.-scorpion
-        Total:
+        = f.label :balance, 'balance: ', :class => 'd-title -mid-size -scorpion label'
       %span.balance
       = f.hidden_field :balance, :class => 'field', value: '0.00'
     = f.submit "Add invoice", :class => 'green-button'
