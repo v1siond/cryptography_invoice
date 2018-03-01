@@ -31,11 +31,16 @@
                 = invoice.client.identification
             %td.pure-u-1-5.t-item.status
               %span
-                = invoice.status
+                - if invoice.status == 1
+                  Pago confirmado
+                - else
+                  Pago no confirmado
             %td.pure-u-1-5.t-item.balance
               %span
+                $
                 = invoice.balance
             %td.pure-u-1-5.t-item.pdf
               %span
-                = link_to 'Download', "#{invoice_path(invoice)}.pdf", class: 'n-link', target: "_blank"
-                = link_to "Delete invoice", invoice_path(invoice), remote: true, :confirm => "Are you sure?", :method => :delete, class: 'delete_invoice'
+                = link_to 'Download', "#{invoice_path(invoice)}.pdf", class: 'pure-u-1 n-link', target: "_blank"
+                = link_to "Cambiar Status", invoice_path(invoice), :confirm => "Are you sure?", :method => :put, class: 'pure-u-1 n-link'
+                = link_to "Delete invoice", invoice_path(invoice), remote: true, :confirm => "Are you sure?", :method => :delete, class: 'pure-u-1 n-link delete_invoice'

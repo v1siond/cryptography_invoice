@@ -48,6 +48,21 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def update
+    @invoice = Invoice.find(params[:id])
+    if @invoice.status == 1
+      @invoice.update(:status => 0)
+    else
+      @invoice.update(:status => 1)
+    end
+    respond_to do |format|
+      format.html { redirect_to "/invoices/#{@invoice.id}.pdf" }
+      format.pdf do
+        render pdf: 'show'
+      end
+    end
+  end
+
   private
 
     def invoice_params
