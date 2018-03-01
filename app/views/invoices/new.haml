@@ -18,7 +18,7 @@
       .pure-u-1.pure-u-lg-11-24.field-set.-left
         %h3.d-title.-mid-size.-scorpion.-left
           Bill to
-        .pure-u-1._text-left
+        .pure-u-1._text-left.search-container
           = f.hidden_field :client_id, :class => 'field client_id'
           %input{type: 'text', class: 'clients-search field', placeholder: 'Client Name or ID'}
           %article.clients-search-results
@@ -65,7 +65,7 @@
       %tbody.pure-u-1.t-body.product-table
         = f.fields_for :invoice_products do |builder|
           = render 'invoice_product_fields', f: builder
-    .products-search-results
+        %tr.products-search-results
     .pure-u-1.i-balance._text-right
       %strong.d-title.-mid-size.-scorpion
         = f.label :balance, 'balance: ', :class => 'd-title -mid-size -scorpion label'

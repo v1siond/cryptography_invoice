@@ -91,3 +91,8 @@ tr {
     display: inline-block;
   }
 }
+
+.search-container {
+  position: relative;
+  z-index: 10;
+}
