@@ -15,7 +15,7 @@
       .l-container.field-group.-end
         %h2.d-title.-scorpion.-fullWidth.-right.-big
           Invoice
-        .full-width.field-set
+        .field-set
           %p.d-text.-fullwidth._text-right
             %strong.d-title.-mid-size.-scorpion.-right
               Status: 
@@ -29,28 +29,24 @@
             = " #{@invoice.company.name}"
           %p.d-text.-fullwidth._text-right
             %strong.d-title.-mid-size.-scorpion
-              ID:
+              Nit:
             = " #{@invoice.company.nit}"
           %p.d-text.-fullwidth._text-right
             %strong.d-title.-mid-size.-scorpion
               Direction:
             = " #{@invoice.company.direction}"
-            = " #{@invoice.company.city}, #{@invoice.company.country}"
+            = " #{@invoice.company.city}, #{@invoice.company.state}, #{@invoice.company.country}"
       %hr.full-width.line-division
       .l-container.field-group.-between
         .pure-u-11-24.field-set.-left
           .pure-u-1._text-left
+            %strong.d-title.-mid-size.-scorpion
+              Bill to:
             %p.d-text.-fullwidth
-              %strong.d-title.-mid-size.-scorpion
-                Bill to:
               = " #{@invoice.client.name}"
             %p.d-text.-fullwidth
-              %strong.d-title.-mid-size.-scorpion
-                ID:
               = " #{@invoice.client.identification}"
             %p.d-text.-fullwidth
-              %strong.d-title.-mid-size.-scorpion
-                Direction:
               = " #{@invoice.client.direction}"          
         .pure-u-11-24.field-set.-right
           .pure-u-1.invoice-info._text-right
@@ -71,6 +67,7 @@
             %strong.d-title.-mid-size.-scorpion
               Amount Due (USD):
               %span.balance
+                $
                 = @invoice.balance
       .pure-u-1.h-table
         .pure-u-1.t-body
@@ -106,7 +103,7 @@
                 %span.i-price
                   $
                   = item.product_total_price
-      .pure-u-1.i-balance._text-right
+      .l-container.pure-u-1.i-balance._text-right
         %strong.d-title.-mid-size.-scorpion
           Balance total: $
           = @invoice.balance

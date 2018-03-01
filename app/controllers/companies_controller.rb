@@ -22,8 +22,8 @@ class CompaniesController < ApplicationController
       if @company.save
         format.js { render :index, notice: 'Company creado exitosamente' }
       else
-        flash[:quote_errors] = @company.errors.full_messages
-        format.js { render new_invoice_path, status: :unprocessable_entity }
+        flash.now[:quote_errors] = @company.errors.full_messages
+        format.js { render new_company_path, status: :unprocessable_entity }
       end
     end
   end
@@ -40,6 +40,6 @@ class CompaniesController < ApplicationController
   private
 
     def company_params
-      params.require(:company).permit(:name, :nit, :direction, :city, :country, :deleted)
+      params.require(:company).permit(:name, :nit, :direction, :city, :state, :country, :deleted)
     end
 end

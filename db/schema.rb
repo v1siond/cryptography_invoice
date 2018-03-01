@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180118214614) do
     t.string  "nit",                   null: false
     t.string  "direction",             null: false
     t.string  "city",                  null: false
+    t.string  "state",                 null: false
     t.string  "country",               null: false
     t.integer "deleted",   default: 0
   end

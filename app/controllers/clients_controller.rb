@@ -38,8 +38,8 @@ class ClientsController < ApplicationController
       if @client.save
         format.js { render json: [@clients.last], status: :created }
       else
-        flash[:quote_errors] = @client.errors.full_messages
-        format.html { redirect_to new_client_path, status: :unprocessable_entity }
+        flash.now[:quote_errors] = @client.errors.full_messages
+        format.js { render new_client_path, status: :unprocessable_entity }
       end
     end
   end

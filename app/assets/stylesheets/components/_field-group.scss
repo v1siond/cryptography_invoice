@@ -7,9 +7,8 @@
   &.-end {
     justify-content: flex-end;
     > .field-set {
-      @include lg {
-        max-width: 15rem;
-      }
+      float: right;
+      max-width: 15rem;
     }
     > .field-set p {
       @include flex_between();

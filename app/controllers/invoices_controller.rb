@@ -33,7 +33,7 @@ class InvoicesController < ApplicationController
       if @invoice.save
         format.js { render :index, notice: 'Invoice creado exitosamente' }
       else
-        flash[:quote_errors] = @invoice.errors.full_messages
+        flash.now[:quote_errors] = @invoice.errors.full_messages
         format.js { render new_invoice_path, status: :unprocessable_entity }
       end
     end

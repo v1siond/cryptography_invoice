@@ -9,11 +9,12 @@ FactoryGirl.define do
   end
 
   factory :company do
-    name "Cryptography and Solutions"
-    nit "123.123.123.123"
-    direction "asd asd asdaasdasd asdasd asd"
-    city "Roma"
-    country "Italia"
+    name "Alexander Pulido"
+    nit "V-21.112.848"
+    direction "Av. el Tenis, calle Dominó, Quinta Amelia Mercedes"
+    city "Coro"
+    state "Falcón"
+    country "Venezuela"
   end
 
 end
