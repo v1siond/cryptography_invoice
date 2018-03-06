@@ -29,12 +29,6 @@ Rails.application.configure do
   config.assets.compress = true
   config.assets.debug = true
 
-  # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
-
-  # Generate digests for assets URLs
-  config.assets.digest = true
-  config.assets.initialize_on_precompile = true
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
