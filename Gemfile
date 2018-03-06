@@ -61,7 +61,7 @@ gem 'textacular', '~> 3.0'
 
 gem 'state_machines-activerecord'
 gem 'public_activity'
-
+gem 'rails_12factor', group: :production
 ## Deploy
 
 
