@@ -11,7 +11,11 @@ class InvoicesController < ApplicationController
   def new
     @invoice = Invoice.new
     invoiceLast = Invoice.last
-    @invoiceNumber = invoiceLast.id + 1
+    if invoiceLast == 0 || invoiceLast == nil
+      @invoiceNumber = 1
+    else
+      @invoiceNumber = invoiceLast.id + 1
+    end
     respond_to do |format|
       format.html {render :layout=> false}
     end
