@@ -119,10 +119,13 @@ end
 group :production do
   ## Application Monitoring
   gem 'skylight', '1.0.1'
+  gem 'factory_girl_rails'
+  gem 'wkhtmltopdf-binary-edge', '~> 0.12.4.0' # PDFkit works on env development & test
 end
 group :production, :staging do
   ## Enable rack timeouts
   gem 'rack-timeout'
-
+  gem 'factory_girl_rails'
+  gem 'wkhtmltopdf-binary-edge', '~> 0.12.4.0' # PDFkit works on env development & test
   # gem 'bugsnag' # bugsnag.com
 end
