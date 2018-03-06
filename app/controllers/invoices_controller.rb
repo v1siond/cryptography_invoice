@@ -10,7 +10,8 @@ class InvoicesController < ApplicationController
 
   def new
     @invoice = Invoice.new
-    @invoiceNumber = Invoice.last.id + 1
+    invoiceLast = Invoice.last
+    @invoiceNumber = invoiceLast.id + 1
     respond_to do |format|
       format.html {render :layout=> false}
     end
