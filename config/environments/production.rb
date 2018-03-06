@@ -76,6 +76,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.mandrill_mailer.default_url_options = { host: 'invoiceexport.com' }
-  config.action_controller.asset_host = 'https://www.invoiceexport.com'
+  config.action_controller.asset_host = 'https://export-invoice.herokuapp.com/'
 end
