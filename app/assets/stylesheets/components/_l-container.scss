@@ -12,10 +12,11 @@
     @include display_flex();
     justify-content: flex-end;
   }
-  &.-invoice {
-    @include lg {
-      max-height: 100%;
-    }
+  &.-between {
+    @include display_flex();
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 100%;
   }
 }
 

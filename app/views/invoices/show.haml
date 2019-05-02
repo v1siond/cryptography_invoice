@@ -33,7 +33,7 @@
             = " #{@invoice.company.nit}"
           %p.d-text.-fullwidth._text-right
             %strong.d-title.-mid-size.-scorpion
-              Direction:
+              Address:
             = " #{@invoice.company.direction}"
             = " #{@invoice.company.city}, #{@invoice.company.state}, #{@invoice.company.country}"
       %hr.full-width.line-division
@@ -47,7 +47,7 @@
             %p.d-text.-fullwidth
               = " #{@invoice.client.identification}"
             %p.d-text.-fullwidth
-              = " #{@invoice.client.direction}"          
+              = " #{@invoice.client.direction}"
         .pure-u-11-24.field-set.-right
           .pure-u-1.invoice-info._text-right
             %strong.d-title.-mid-size.-scorpion
@@ -72,13 +72,11 @@
       .pure-u-1.h-table
         .pure-u-1.t-body
           .pure-u-1.header
-            .t-item.pure-u-1-5
+            .t-item.pure-u-1-4
               Name:
-            .t-item.pure-u-1-5
-              ID:
-            .t-item.pure-u-1-5
+            .t-item.pure-u-1-4
               Quantity:
-            .t-item.pure-u-1-5
+            .t-item.pure-u-1-4
               Price:
             .t-item.pure-u-1-6
               Total:
@@ -86,16 +84,13 @@
         .pure-u-1.t-body
           - @invoice.invoice_products.each do |item|
             .pure-u-1.row.field-container
-              .t-item.pure-u-1-5
+              .t-item.pure-u-1-4
                 %span
                   = item.product.name
-              .t-item.pure-u-1-5.i-id
-                %span
-                  = item.product.id
-              .t-item.pure-u-1-5
+              .t-item.pure-u-1-4
                 %span
                   = item.product_quantity
-              .t-item.pure-u-1-5
+              .t-item.pure-u-1-4
                 %span.i-price
                   $
                   = item.product.price
@@ -103,7 +98,61 @@
                 %span.i-price
                   $
                   = item.product_total_price
-      .l-container.pure-u-1.i-balance._text-right
-        %strong.d-title.-mid-size.-scorpion
+      .l-container.pure-u-1.-between
+        %h2.d-title.-mid-size.-scorpion.pure-u-1
+          Payment Details
+        .payment-details
+          %h3.d-title.-mid-size.-scorpion.pure-u-1.-left
+            Paypal Account:
+          %dl.payment-via.pure-u-1
+            %p.d-title.-small-size.-scorpion
+              Account:
+            %span
+              amelia21692011@gmail.com
+            %p.d-title.-small-size.-scorpion
+              Amount:
+            %span
+              $528,86
+          %h3.d-title.-mid-size.-scorpion.pure-u-1.-left
+            Payoneer Account:
+          %dl.payment-via.pure-u-1
+            %p.d-title.-small-size.-scorpion
+              Bank Name:
+            %span
+              First Century Bank
+            %p.d-title.-small-size.-scorpion
+              Routing (ABA):
+            %span
+              061120084
+            %p.d-title.-small-size.-scorpion
+              Account Number:
+            %span
+              4016110817786
+            %p.d-title.-small-size.-scorpion
+              Account Type :
+            %span
+              CHECKING
+            %p.d-title.-small-size.-scorpion
+              Beneficiary Name
+            %span
+              Alexander Pulido
+            %p.d-title.-small-size.-scorpion
+              Amount:
+            %span
+              $1471.14
+        %strong.d-title.-mid-size.-scorpion.-right
           Balance total: $
           = @invoice.balance
+        %dl.pure-u-1
+          %h2.d-title.-small-size.-scorpion.-left
+            Important Note for Payments via Payoneer:
+          %p.d-text.-small.-scorpion.-left
+            Only ACH (US local bank) transfers in USD can be accepted
+          %p.d-text.-small.-scorpion.-left
+            Transfers must be made from a company account
+          %p.d-text.-small.-scorpion.-left
+            Transfers from individuals will be automatically rejected
+          %p.d-text.-small.-scorpion.-left
+            Wire transfers are not supported
+          %p.d-text.-small.-scorpion.-left
+            Transfers made from a company account owned by you cannot be accepted

@@ -43,7 +43,7 @@
 .header > .t-item,
 .row  > .t-item > span {
   display: inline-block;
-  font-size: .5rem !important;
+  font-size: .75rem !important;
   padding: .5rem;
   vertical-align: middle;
   @include sm {
@@ -61,8 +61,6 @@
 .t-item {
   border-bottom: .05rem solid black;
   border-right: .05rem solid black;
-  word-break: break-all;
-  word-wrap: break-word;
   &:last-child {
     border-right: none;
   }

@@ -96,3 +96,30 @@ tr {
   position: relative;
   z-index: 10;
 }
+
+.payment-via {
+  width: 100%;
+  > p {
+    display: inline-block;
+    text-align: left;
+    width: 35%;
+  }
+  > span {
+    display: inline-block;
+    color: daken($scorpion, 15%);
+    font-size: $medium-font-size;
+    width: 60%;
+  }
+}
+
+.payment-details {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 60%;
+}
+
+strong.balance {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 30%;
+}
