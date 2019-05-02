@@ -7,8 +7,7 @@
     background-color: rgba($sage, .6);
     min-height: calc(100vh - 9.75rem);
     @include lg {
-      height: calc(100vh - 11.9rem);
-      min-height: auto;
+      min-height: calc(100vh - 11.9rem);
     }
   }
 }
