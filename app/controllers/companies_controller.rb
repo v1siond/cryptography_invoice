@@ -30,7 +30,7 @@ class CompaniesController < ApplicationController
 
   def destroy
     @company = Company.find(params[:id])
-    @company.update(deleted: 1)
+    @company.destroy
     respond_to do |format|
       format.html { redirect_to companies_path }
       format.js   { render :layout => false }

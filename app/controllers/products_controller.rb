@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.update(deleted: 1)
+    @product.destroy
     respond_to do |format|
       format.html { redirect_to products_path }
       format.js   { render :layout => false }

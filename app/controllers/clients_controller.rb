@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
 
   def destroy
     @client = Client.find(params[:id])
-    @client.update(deleted: 1)
+    @client.destroy
     respond_to do |format|
       format.html { redirect_to clients_path }
       format.js   { render :layout => false }

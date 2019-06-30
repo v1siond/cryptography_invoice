@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0' # Build json responses
 gem 'puma' # webserver
 gem 'sinatra', require: nil # for sidekiq dashboard
-gem 'activeadmin', github: 'activeadmin' # Admin interface
+gem 'activeadmin', '~>1.4.3' # Admin interface
 gem 'active_admin_theme' # Theme up activeadmin a bit, flatter
 gem 'devise'          # authentication
 gem 'pundit'          # authorization
