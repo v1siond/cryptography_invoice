@@ -29,7 +29,7 @@ gem 'haikunator'
 
 ## Asset bits
 gem 'therubyracer'
-gem 'haml', '~> 4.0.7'
+gem 'haml', '~> 5.0.0'
 gem 'foundation-rails', '~> 6.1.2.0'
 gem 'foundation-icons-sass-rails'
 gem 'gravtastic'
